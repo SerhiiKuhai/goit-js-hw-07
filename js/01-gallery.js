@@ -30,11 +30,9 @@ function createGalleryCardsMarkup(galleryItems) {
 
 function onGalleryContainerClick(event) {
   event.preventDefault();
-  if (!event.target.classList.contains("gallery__image")) {
-    return;
-  }
-  const originalImg = event.target.dataset.source;
-  console.log(event.target);
-  console.dir(event.target);
-  console.log(originalImg);
+
+  const qwa = `<img src="${event.target.dataset.source}">`;
+  const instance = basicLightbox.create(qwa);
+
+  instance.show();
 }
