@@ -31,22 +31,22 @@ function createGalleryCardsMarkup(galleryItems) {
 function onGalleryContainerClick(event) {
   event.preventDefault();
 
-  const qwa = `<img class="${event.target.className}" src="${event.target.dataset.source}"> alt="${event.target.alt}"`;
-  const instance = basicLightbox.create(qwa);
+  const newMarkupBigImg = `<img class="${event.target.className}" src="${event.target.dataset.source}" alt="${event.target.alt}"/>`;
+  const instance = basicLightbox.create(newMarkupBigImg);
 
   instance.show();
 
   window.addEventListener("keydown", onEscKeyPress);
-}
 
-function onEscKeyPress(event) {
-  console.log(event);
-  if (event.code === "Escape") {
-    onCloseModal();
+  function onEscKeyPress(event) {
+    // console.log(event);
+    if (event.code === "Escape") {
+      onCloseModal();
+    }
   }
-}
 
-function onCloseModal() {
-  window.removeEventListener("keydown", onEscKeyPress);
-  instance.close();
+  function onCloseModal() {
+    window.removeEventListener("keydown", onEscKeyPress);
+    instance.close();
+  }
 }
